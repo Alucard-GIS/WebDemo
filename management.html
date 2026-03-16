@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>职工管理系统</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        /* 顶栏样式 */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #c2c0c0;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 加大加粗标题 */
+        .header h1 {
+            margin: 0;
+            /* 移除默认的外边距 */
+            font-size: 24px;
+            /* 加粗 */
+            font-weight: bold;
+            /* 设置字体为楷体 */
+            font-family: KaiTi, serif;
+        }
+
+        /* 文本链接样式 */
+        .header a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+
+        /* 搜索表单区域 */
+        .search-form {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            margin: 20px 0;
+        }
+
+        /* 表单控件样式 */
+        .search-form input[type="text"],
+        .search-form select {
+            margin-right: 10px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 260px;
+        }
+
+        /* 表单按钮样式 */
+        .search-form button {
+            padding: 5px 15px;
+            margin-left: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* 表单清空按钮样式 */
+        .search-form button.clear {
+            background-color: #6c757d;
+        }
+
+        /* 表格样式 */
+        .table {
+            min-width: 100%;
+            border-collapse: collapse;
+            margin: 0 20px;
+        }
+
+        /* 设置表格单元格边框 */
+        .table td,
+        .table th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* 页脚版权区域 */
+        .footer {
+            background-color: #c2c0c0;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+
+        .footer .company-name {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .footer .copyright {
+            font-size: 0.9em;
+        }
+
+        #container {
+            width: 80%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <!-- 顶栏 -->
+        <div class="header">
+            <h1>职工管理系统</h1>
+            <a href="https://www.njtech.edu.cn/">学校首页</a>
+            <a href="#">退出登录</a>
+        </div>
+
+        <!-- 搜索表单区域 -->
+        <form class="search-form">
+            <label for="name">姓名：</label>
+            <input type="text" id="name" name="name" placeholder="请输入员工姓名" />
+
+            <label for="gender">性别：</label>
+            <select name="gender" id="gender">
+                <option value="">请选择</option>
+                <option value="1">男</option>
+                <option value="2">女</option>
+            </select>
+
+            <label for="job">职位：</label>
+            <select name="job" id="job">
+                <option value="">请选择</option>
+                <option value="1">班主任</option>
+                <option value="2">讲师</option>
+                <option value="3">学工主管</option>
+                <option value="4">教研主管</option>
+                <option value="5">咨询师</option>
+            </select>
+            <button type="submit">查询</button>
+            <button type="reset" class="clear">清空</button>
+        </form>
+
+        <!-- 表格数据展示 -->
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>头像</th>
+                    <th>职位</th>
+                    <th>入职日期</th>
+                    <th>最后操作时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>令狐冲</td>
+                    <td>男</td>
+                    <td><img src="https://s1.aigei.com/prevfiles/fe0c75404d6b4776aa95df8f2fa876d7.png?e=2051020800&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:c8p1DpbBA8zmuDJPShjFAbE6gQk=" alt="令狐冲" class="avatar"></td>
+                    <td>讲师</td>
+                    <td>2021-03-15</td>
+                    <td>2026-03-14 12:00:00</td>
+                    <td class="btn-group">
+                        <button>编辑</button>
+                        <button>删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>任盈盈</td>
+                    <td>女</td>
+                    <td><img src="https://s1.aigei.com/prevfiles/fe0c75404d6b4776aa95df8f2fa876d7.png?e=2051020800&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:c8p1DpbBA8zmuDJPShjFAbE6gQk=" alt="任盈盈" class="avatar"></td>
+                    <td>学工主管</td>
+                    <td>2020-04-10</td>
+                    <td>2026-03-14 15:00:00</td>
+                    <td class="btn-group">
+                        <button>编辑</button>
+                        <button>删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>岳不群</td>
+                    <td>男</td>
+                    <td><img src="https://s1.aigei.com/prevfiles/fe0c75404d6b4776aa95df8f2fa876d7.png?e=2051020800&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:c8p1DpbBA8zmuDJPShjFAbE6gQk=" alt="岳不群" class="avatar"></td>
+                    <td>教研主管</td>
+                    <td>2019-01-01</td>
+                    <td>2026-03-14 10:00:00</td>
+                    <td class="btn-group">
+                        <button>编辑</button>
+                        <button>删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>宁中则</td>
+                    <td>女</td>
+                    <td><img src="https://s1.aigei.com/prevfiles/fe0c75404d6b4776aa95df8f2fa876d7.png?e=2051020800&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:c8p1DpbBA8zmuDJPShjFAbE6gQk=" alt="宁中则" class="avatar"></td>
+                    <td>班主任</td>
+                    <td>2018-06-01</td>
+                    <td>2026-03-14 09:00:00</td>
+                    <td class="btn-group">
+                        <button>编辑</button>
+                        <button>删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>林平之</td>
+                    <td>男</td>
+                    <td><img src="https://s1.aigei.com/prevfiles/fe0c75404d6b4776aa95df8f2fa876d7.png?e=2051020800&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:c8p1DpbBA8zmuDJPShjFAbE6gQk=" alt="林平之" class="avatar"></td>
+                    <td>讲师</td>
+                    <td>2018-06-01</td>
+                    <td>2026-03-14 09:00:00</td>
+                    <td class="btn-group">
+                        <button>编辑</button>
+                        <button>删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>卢俊义</td>
+                    <td>男</td>
+                    <td><img src="https://s1.aigei.com/prevfiles/fe0c75404d6b4776aa95df8f2fa876d7.png?e=2051020800&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:c8p1DpbBA8zmuDJPShjFAbE6gQk=" alt="卢俊义" class="avatar"></td>
+                    <td>讲师</td>
+                    <td>2018-06-01</td>
+                    <td>2026-03-14 09:00:00</td>
+                    <td class="btn-group">
+                        <button>编辑</button>
+                        <button>删除</button>
+                    </td>
+                </tr>
+                 <tr>
+                    <td>呼延灼</td>
+                    <td>男</td>
+                    <td><img src="https://s1.aigei.com/prevfiles/fe0c75404d6b4776aa95df8f2fa876d7.png?e=2051020800&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:c8p1DpbBA8zmuDJPShjFAbE6gQk=" alt="呼延灼" class="avatar"></td>
+                    <td>讲师</td>
+                    <td>2018-06-01</td>
+                    <td>2026-03-14 09:00:00</td>
+                    <td class="btn-group">
+                        <button>编辑</button>
+                        <button>删除</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 公司介绍区域 -->
+        <div style="background: #f4f4f4; margin: 30px 0 0 0; padding: 20px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.05);">
+            <h2 style="font-size: 20px; font-family: KaiTi, serif; margin-top: 0;">公司介绍</h2>
+            <p style="font-size: 16px; line-height: 1.8; color: #333; margin-bottom: 0;">
+                南工地空教育科技股份有限公司是一家专注于教育信息化解决方案的高新技术企业。公司致力于为各类院校和教育机构提供先进的管理系统、智能化教学平台及优质的技术服务，助力教育行业数字化转型升级。我们拥有专业的研发团队和丰富的行业经验，始终坚持以客户为中心，推动教育创新与发展。
+            </p>
+        </div>
+        <!-- 页脚版权区域 -->
+        <footer class="footer">
+            <p class="company-name">南工地空教育科技股份有限公司</p>
+            <p class="copyright">版权所有 Copyright 2006-2026 All Rights Reserved</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
